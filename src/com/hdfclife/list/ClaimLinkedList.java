@@ -56,6 +56,7 @@ public class ClaimLinkedList {
 
     }
 
+    // Time Complexity: O(n); Space Complexity: O(1)
     public void insertAt(int index, int amount) {
 
         if(index < 0 || index > size) {
@@ -90,6 +91,7 @@ public class ClaimLinkedList {
         size++;
     }
 
+    // Time Complexity: O(n); Space Complexity: O(1)
     public void deleteAt(int index) {
 
         if(head == null) {
