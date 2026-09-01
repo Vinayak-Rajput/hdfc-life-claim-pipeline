@@ -2,26 +2,12 @@ package com.hdfclife.stack;
 
 import com.hdfclife.list.ClaimLinkedList;
 
-import java.util.HashMap;
 import java.util.NoSuchElementException;
 
 public class LinkedClaimStack implements ClaimStack{
 
     private ClaimLinkedList.ClaimNode head;
     private int size;
-
-    private static HashMap<Character,Character> hmap;
-
-    static {
-        hmap = new HashMap<>();
-        hmap.put('(',')');
-        hmap.put('[',']');
-        hmap.put('{','}');
-    }
-
-    public static Character getPairedCharacter(Character ch) {
-        return hmap.get(ch);
-    }
 
     public int size() {
 

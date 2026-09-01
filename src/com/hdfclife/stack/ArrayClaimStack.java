@@ -18,7 +18,7 @@ public class ArrayClaimStack implements ClaimStack{
         if(top == stack.length - 1) {
             throw new StackFullException("Stack is Full, Can't Push More.");
         }
-        stack[top++] = value;
+        stack[++top] = value;
     }
 
     @Override
@@ -43,6 +43,6 @@ public class ArrayClaimStack implements ClaimStack{
 
     @Override
     public boolean isEmpty() {
-        return false;
+        return top == -1;
     }
 }

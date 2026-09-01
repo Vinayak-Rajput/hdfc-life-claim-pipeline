@@ -4,6 +4,7 @@ import com.hdfclife.list.ClaimLinkedList;
 import com.hdfclife.list.CycleDetector;
 import com.hdfclife.list.DigitListAdder;
 import com.hdfclife.list.ListReverser;
+import com.hdfclife.stack.ParenthesesChecker;
 
 public class Main {
 
@@ -67,7 +68,11 @@ public class Main {
         DigitListAdder.sumList(num1, num2);
 
 
-        // 5.
+        // 5. Balanced Parenthesis & Check Palindrome
+
+        System.out.println(ParenthesesChecker.isValidParenthesis("((TERM)(ULIP))"));
+        System.out.println(ParenthesesChecker.isValidParenthesis("((TERM)(ULIP)"));
+        System.out.println(ParenthesesChecker.isValidParenthesis("([)]"));
 
     }
 
