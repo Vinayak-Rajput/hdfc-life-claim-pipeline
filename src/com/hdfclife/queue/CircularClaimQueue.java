@@ -51,4 +51,19 @@ public class CircularClaimQueue {
     public boolean isFull() {
         return size == queue.length;
     }
+
+    public void display() {
+
+        if (isEmpty()) {
+            System.out.println("Queue is Empty");
+            return;
+        }
+
+        for (int i = 0; i < size; i++) {
+            int index = (front + i) % queue.length;
+            System.out.print(queue[index] + " ");
+        }
+
+        System.out.println();
+    }
 }

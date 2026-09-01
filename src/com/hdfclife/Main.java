@@ -4,6 +4,7 @@ import com.hdfclife.list.ClaimLinkedList;
 import com.hdfclife.list.CycleDetector;
 import com.hdfclife.list.DigitListAdder;
 import com.hdfclife.list.ListReverser;
+import com.hdfclife.queue.CircularClaimQueue;
 import com.hdfclife.stack.ParenthesesChecker;
 import com.hdfclife.stack.PostfixEvaluator;
 
@@ -78,6 +79,18 @@ public class Main {
         System.out.println(PostfixEvaluator.evaluate("25000 18000 + 1000 -"));
 
         // 6. Circular Queue and BFS
+        CircularClaimQueue circularClaimQueue = new CircularClaimQueue(4);
+
+        circularClaimQueue.enqueue(25000);
+        circularClaimQueue.enqueue(18000);
+        circularClaimQueue.enqueue(42000);
+
+        System.out.println(circularClaimQueue.dequeue());
+
+        circularClaimQueue.enqueue(15000);
+        circularClaimQueue.enqueue(31000);
+
+        circularClaimQueue.display();
 
 
     }
