@@ -13,7 +13,7 @@ public class ClaimLinkedList {
         public int  amount;
         public ClaimNode next;
 
-        ClaimNode(int amount){
+        public ClaimNode(int amount){
             this.amount = amount;
         }
     }
