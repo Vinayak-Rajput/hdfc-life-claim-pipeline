@@ -5,17 +5,25 @@ import com.hdfclife.exception.InvalidIndexException;
 
 public class ClaimLinkedList {
 
-    private int size;
-    private ClaimNode head;
-    private ClaimNode tail;
+    int size;
+    ClaimNode head;
+    ClaimNode tail;
 
-    static class ClaimNode {
-        int amount;
-        ClaimNode next;
+    public static class ClaimNode {
+        public int  amount;
+        public ClaimNode next;
 
         ClaimNode(int amount){
             this.amount = amount;
         }
+    }
+
+    public ClaimNode getHead() {
+        return head;
+    }
+
+    public ClaimNode getTail() {
+        return tail;
     }
 
     public void addFirst(int amount) {
@@ -169,6 +177,21 @@ public class ClaimLinkedList {
 
     public int size(){
         return size;
+    }
+
+    public ClaimLinkedList cloneList() {
+        ClaimLinkedList cllClone = new ClaimLinkedList();
+
+        ClaimNode temp = this.head;
+
+        while(temp != null) {
+
+            cllClone.addLast(temp.amount);
+            temp = temp.next;
+
+        }
+
+        return cllClone;
     }
 
 }
