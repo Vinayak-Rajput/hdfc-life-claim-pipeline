@@ -5,6 +5,7 @@ import com.hdfclife.list.CycleDetector;
 import com.hdfclife.list.DigitListAdder;
 import com.hdfclife.list.ListReverser;
 import com.hdfclife.stack.ParenthesesChecker;
+import com.hdfclife.stack.PostfixEvaluator;
 
 public class Main {
 
@@ -74,6 +75,7 @@ public class Main {
         System.out.println(ParenthesesChecker.isValidParenthesis("((TERM)(ULIP)"));
         System.out.println(ParenthesesChecker.isValidParenthesis("([)]"));
 
+        System.out.println(PostfixEvaluator.evaluate("25000 18000 + 1000 -"));
     }
 
 

@@ -4,7 +4,7 @@ import com.hdfclife.list.ClaimLinkedList;
 
 import java.util.NoSuchElementException;
 
-public class LinkedClaimStack implements ClaimStack{
+public class  LinkedClaimStack implements ClaimStack{
 
     private ClaimLinkedList.ClaimNode head;
     private int size;
