@@ -1,5 +1,8 @@
 package com.hdfclife;
 
+import com.hdfclife.exception.InvalidIndexException;
+import com.hdfclife.exception.QueueEmptyException;
+import com.hdfclife.exception.StackEmptyException;
 import com.hdfclife.list.ClaimLinkedList;
 import com.hdfclife.list.CycleDetector;
 import com.hdfclife.list.DigitListAdder;
@@ -7,12 +10,14 @@ import com.hdfclife.list.ListReverser;
 import com.hdfclife.queue.BranchBfs;
 import com.hdfclife.queue.CircularClaimQueue;
 import com.hdfclife.queue.ClaimPriorityDesk;
+import com.hdfclife.stack.ArrayClaimStack;
 import com.hdfclife.stack.ParenthesesChecker;
 import com.hdfclife.stack.PostfixEvaluator;
 import com.hdfclife.thread.ClaimTotalCallable;
 import com.hdfclife.thread.ProducerConsumer;
 import com.hdfclife.thread.SeedRunnable;
 
+import java.util.EmptyStackException;
 import java.util.List;
 import java.util.concurrent.*;
 import java.util.function.Function;
@@ -193,7 +198,39 @@ public class Main {
 
         executorService.shutdown();
 
-    }
+        // Exceptional Handling
 
+        try {
+
+            list.deleteAt(99);
+
+        } catch(InvalidIndexException e) {
+
+            System.out.println(e.getMessage());
+        }
+
+        ArrayClaimStack arrayClaimStack = new ArrayClaimStack(5);
+
+        try{
+
+            arrayClaimStack.pop();
+
+        } catch (StackEmptyException e) {
+
+            System.out.println(e.getMessage());
+
+        }
+
+        CircularClaimQueue circularClaimQueue1 = new CircularClaimQueue(2);
+        try{
+
+            circularClaimQueue1.dequeue();
+
+        } catch (QueueEmptyException e) {
+
+            System.out.println(e.getMessage());
+        }
+
+    }
 
 }
