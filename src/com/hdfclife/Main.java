@@ -13,6 +13,8 @@ import com.hdfclife.thread.SeedRunnable;
 
 import java.util.PriorityQueue;
 
+import java.util.PriorityQueue;
+
 public class Main {
 
     static void main() {
@@ -96,30 +98,6 @@ public class Main {
         circularClaimQueue.enqueue(31000);
 
         circularClaimQueue.display();
-
-        System.out.print("BFS from MUMBAI: ");
-        BranchBfs.bfsTraversal("MUMBAI");
-
-        // 7. PriorityQueue
-        ClaimPriorityDesk.printClaimsPQ();
-
-        // 8. Threads - Runnable, Callable, Future
-        SeedRunnable seedRunnable = new SeedRunnable();
-
-        Thread thread = new Thread(seedRunnable);
-
-        System.out.println(thread.getState());
-        thread.start();
-
-        try {
-            thread.join();
-        } catch (InterruptedException e) {
-            System.out.println("Interrupted Exception: " + e);
-        }
-
-        System.out.println(thread.getState());
-
-
 
 
     }
