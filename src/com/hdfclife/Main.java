@@ -4,9 +4,13 @@ import com.hdfclife.list.ClaimLinkedList;
 import com.hdfclife.list.CycleDetector;
 import com.hdfclife.list.DigitListAdder;
 import com.hdfclife.list.ListReverser;
+import com.hdfclife.queue.BranchBfs;
 import com.hdfclife.queue.CircularClaimQueue;
+import com.hdfclife.queue.ClaimPriorityDesk;
 import com.hdfclife.stack.ParenthesesChecker;
 import com.hdfclife.stack.PostfixEvaluator;
+
+import java.util.PriorityQueue;
 
 public class Main {
 
@@ -91,6 +95,12 @@ public class Main {
         circularClaimQueue.enqueue(31000);
 
         circularClaimQueue.display();
+
+        System.out.print("BFS from MUMBAI: ");
+        BranchBfs.bfsTraversal("MUMBAI");
+
+        // 7. PriorityQueue
+        ClaimPriorityDesk.printClaimsPQ();
 
 
     }
