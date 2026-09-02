@@ -11,10 +11,6 @@ import com.hdfclife.stack.ParenthesesChecker;
 import com.hdfclife.stack.PostfixEvaluator;
 import com.hdfclife.thread.SeedRunnable;
 
-import java.util.PriorityQueue;
-
-import java.util.PriorityQueue;
-
 public class Main {
 
     static void main() {
@@ -99,7 +95,29 @@ public class Main {
 
         circularClaimQueue.display();
 
+        BranchBfs.bfsTraversal("MUMBAI");
 
+        // 7. Priority Queue
+        ClaimPriorityDesk.printClaimsPQ();
+
+        // 8. Threads
+        SeedRunnable seedRunnable = new SeedRunnable();
+        Thread thread = new Thread(seedRunnable);
+
+        System.out.println(thread.getState());
+
+        thread.start();
+
+        try {
+
+            thread.join();
+
+        } catch (InterruptedException e) {
+
+            throw new RuntimeException(e);
+        }
+
+        System.out.println(thread.getState());
     }
 
 
