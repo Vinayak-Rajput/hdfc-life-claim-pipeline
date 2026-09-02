@@ -9,6 +9,7 @@ import com.hdfclife.queue.CircularClaimQueue;
 import com.hdfclife.queue.ClaimPriorityDesk;
 import com.hdfclife.stack.ParenthesesChecker;
 import com.hdfclife.stack.PostfixEvaluator;
+import com.hdfclife.thread.SeedRunnable;
 
 import java.util.PriorityQueue;
 
@@ -101,6 +102,24 @@ public class Main {
 
         // 7. PriorityQueue
         ClaimPriorityDesk.printClaimsPQ();
+
+        // 8. Threads - Runnable, Callable, Future
+        SeedRunnable seedRunnable = new SeedRunnable();
+
+        Thread thread = new Thread(seedRunnable);
+
+        System.out.println(thread.getState());
+        thread.start();
+
+        try {
+            thread.join();
+        } catch (InterruptedException e) {
+            System.out.println("Interrupted Exception: " + e);
+        }
+
+        System.out.println(thread.getState());
+
+
 
 
     }
