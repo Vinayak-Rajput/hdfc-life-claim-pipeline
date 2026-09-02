@@ -9,7 +9,13 @@ import com.hdfclife.queue.CircularClaimQueue;
 import com.hdfclife.queue.ClaimPriorityDesk;
 import com.hdfclife.stack.ParenthesesChecker;
 import com.hdfclife.stack.PostfixEvaluator;
+import com.hdfclife.thread.ClaimTotalCallable;
+import com.hdfclife.thread.ProducerConsumer;
 import com.hdfclife.thread.SeedRunnable;
+
+import java.util.List;
+import java.util.concurrent.*;
+import java.util.function.Function;
 
 public class Main {
 
@@ -118,6 +124,75 @@ public class Main {
         }
 
         System.out.println(thread.getState());
+
+        ExecutorService executorService = Executors.newFixedThreadPool(2);
+        List<Integer> seedAmounts = List.of(25000, 18000, 42000, 15000, 31000, 9000);
+
+        ClaimTotalCallable claimTotalCallable = new ClaimTotalCallable(seedAmounts);
+
+        Future<Integer> future = executorService.submit(claimTotalCallable);
+        Integer sumSeedAmounts = null;
+
+        try {
+
+            sumSeedAmounts = future.get();
+
+        } catch (InterruptedException | ExecutionException e) {
+
+            throw new RuntimeException(e);
+        }
+
+        System.out.println(sumSeedAmounts);
+
+        System.out.println(future.isDone());
+
+        CompletableFuture<Integer> completableFuture = CompletableFuture.supplyAsync(() -> {
+
+            int sum = 0;
+
+            for(int seed: seedAmounts) {
+                sum += seed;
+            }
+
+            return sum;
+        });
+
+        try {
+
+            System.out.println(completableFuture.get());
+
+        } catch (InterruptedException | ExecutionException e) {
+
+            throw new RuntimeException(e);
+
+        }
+
+        Future<Void> sleep  = executorService.submit(() -> {
+            try {
+                Thread.sleep(3000);
+            } catch (InterruptedException e) {
+                throw new RuntimeException(e);
+            }
+            return null;
+        });
+
+        sleep.cancel(true);
+
+        System.out.println(sleep.isCancelled());
+
+        Thread daemonThread = new Thread(() -> {});
+        daemonThread.setDaemon(true);
+
+        System.out.println(daemonThread.isDaemon());
+
+        try {
+            ProducerConsumer.producerConsumerDemo();
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+
+        executorService.shutdown();
+
     }
 
 
