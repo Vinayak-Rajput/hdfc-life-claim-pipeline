@@ -167,7 +167,9 @@ public class ClaimLinkedList {
 
         while(node != null) {
 
-            System.out.print(node.amount + " ");
+            System.out.print(node.amount);
+
+            if(node.next != null) System.out.print(", ");
             node = node.next;
 
         }

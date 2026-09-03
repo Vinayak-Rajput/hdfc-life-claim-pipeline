@@ -2,22 +2,20 @@ package com.hdfclife.list;
 
 public class CycleDetector {
 
-    public static void hasCycle(ClaimLinkedList cll) {
+    // Time Complexity: O(n); Space Complexity: O(1)
+    public static int hasCycle(ClaimLinkedList cll) {
 
-        if(cll.head == null) return;
+        if(cll.head == null) return -1;
 
         if(cll.head.next == null) {
             System.out.println(false);
-            System.out.println(cll.head.amount);
-            return;
+            return -1;
         }
 
         if(cll.head.next.next == null) {
             System.out.println(false);
-            System.out.println(cll.head.next.amount);
-            return;
+            return -1;
         }
-
 
         ClaimLinkedList.ClaimNode slow = cll.head;
         ClaimLinkedList.ClaimNode fast = cll.head;
@@ -33,6 +31,7 @@ public class CycleDetector {
             if(slow == fast) {
                 isCycleDetected = true;
                 slow = cll.head;
+
                 while(slow != fast) {
                     slow = slow.next;
                     fast = fast.next;
@@ -41,13 +40,16 @@ public class CycleDetector {
             }
         }
 
-        System.out.println("Cycle Detected: " + isCycleDetected);
+        System.out.println(isCycleDetected);
+        return slow.amount;
 
-        if(isCycleDetected) {
+    }
 
-            System.out.println("Cycle Starts at: " + slow.amount);
-            return;
-        }
+    // Time Complexity: O(n); Space Complexity: O(1)
+    public static void middleValue(ClaimLinkedList cll) {
+
+        ClaimLinkedList.ClaimNode slow = cll.head;
+        ClaimLinkedList.ClaimNode fast = cll.head;
 
         slow = cll.head;
         fast = cll.head;
@@ -59,6 +61,7 @@ public class CycleDetector {
 
         }
 
-        System.out.println("Middle Value: " + slow.amount);
+        System.out.println(slow.amount);
+
     }
 }

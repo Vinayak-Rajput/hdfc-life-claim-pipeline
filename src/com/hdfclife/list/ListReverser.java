@@ -2,10 +2,10 @@ package com.hdfclife.list;
 
 public class ListReverser {
 
+    // Time Complexity: O(n); Space Complexity: O(1)
     public static void iterativeReverse(ClaimLinkedList cll) {
 
-        ClaimLinkedList cll2 = cll;
-        ClaimLinkedList.ClaimNode current =  cll2.head;
+        ClaimLinkedList.ClaimNode current =  cll.head;
         ClaimLinkedList.ClaimNode prev = null;
         ClaimLinkedList.ClaimNode next;
 
@@ -27,8 +27,9 @@ public class ListReverser {
 
         System.out.println();
     }
-    public static void recursiveReverse(ClaimLinkedList list){
 
+    // Time Complexity: O(n); Space Complexity: O(n)
+    public static void recursiveReverse(ClaimLinkedList list){
 
         ClaimLinkedList.ClaimNode newHead = reverse(list.head);
 

@@ -15,6 +15,7 @@ public class BranchBfs {
         adjacencyList.put("CHENNAI", new ArrayList<>());
     }
 
+    // Time Complexity: O(n); Space Complexity: O(n)
     public static void bfsTraversal(String city) {
 
         Queue<String> queue = new LinkedList<>();

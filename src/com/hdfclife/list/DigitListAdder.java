@@ -2,7 +2,8 @@ package com.hdfclife.list;
 
 public class DigitListAdder {
 
-    public static void sumList( ClaimLinkedList cll1, ClaimLinkedList cll2) {
+    // Time Complexity: O(max(m,n)); Space Complexity: O(max(m,n))
+    public static ClaimLinkedList sumList( ClaimLinkedList cll1, ClaimLinkedList cll2) {
 
         ClaimLinkedList sum = new ClaimLinkedList();
 
@@ -32,7 +33,6 @@ public class DigitListAdder {
             sum.addLast(localSum % 10);
         }
 
-        sum.toArray();
-
+        return sum;
     }
 }

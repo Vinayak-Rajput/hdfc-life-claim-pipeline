@@ -13,6 +13,7 @@ public class ParenthesesChecker {
         hmap.put('}', '{');
     }
 
+    // Time Complexity: O(n); Space Complexity: O(n)
     public static boolean isValidParenthesis(String str) {
 
         ArrayClaimStack arrayClaimStack = new ArrayClaimStack(32);
@@ -35,6 +36,7 @@ public class ParenthesesChecker {
                 arrayClaimStack.push(ch);
             }
         }
+
         return arrayClaimStack.isEmpty();
     }
 }

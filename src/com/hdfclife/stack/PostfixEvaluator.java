@@ -2,6 +2,7 @@ package com.hdfclife.stack;
 
 public class PostfixEvaluator {
 
+    // Time Complexity: O(n); Space Complexity: O(n)
     public static int evaluate(String str) {
 
         LinkedClaimStack linkedClaimStack = new LinkedClaimStack();

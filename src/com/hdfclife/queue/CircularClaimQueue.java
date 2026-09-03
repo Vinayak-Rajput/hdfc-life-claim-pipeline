@@ -14,13 +14,14 @@ public class CircularClaimQueue {
 
     public CircularClaimQueue(int capacity) {
         queue = new int[capacity];
-
         front = 0;
         rear = -1;
         size = 0;
     }
 
+    // Time Complexity: O(1); Space Complexity: O(1)
     public void enqueue(int value) {
+
         if(isFull()) {
             throw new QueueFullException("Queue is Full.");
         }
@@ -30,6 +31,7 @@ public class CircularClaimQueue {
         size++;
     }
 
+    // Time Complexity: O(1); Space Complexity: O(1)
     public int dequeue(){
 
         if(isEmpty()) {
@@ -41,7 +43,6 @@ public class CircularClaimQueue {
         size--;
 
         return removedValue;
-
     }
 
     public boolean isEmpty() {
@@ -61,7 +62,8 @@ public class CircularClaimQueue {
 
         for (int i = 0; i < size; i++) {
             int index = (front + i) % queue.length;
-            System.out.print(queue[index] + " ");
+            System.out.print(queue[index]);
+            if(i != size - 1) System.out.print(", ");
         }
 
         System.out.println();

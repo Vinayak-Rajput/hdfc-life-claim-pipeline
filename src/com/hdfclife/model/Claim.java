@@ -2,11 +2,11 @@ package com.hdfclife.model;
 
 public class Claim {
 
-    private String claimId;
-    private int claimAmount;
-    private String policyId;
-    private String customerName;
-    private Urgency urgency;
+    private final String claimId;
+    private final int claimAmount;
+    private final String policyId;
+    private final String customerName;
+    private final Urgency urgency;
 
     public Claim(String claimId, int claimAmount, String policyId, String customerName, Urgency urgency) {
         this.claimId = claimId;
@@ -38,6 +38,6 @@ public class Claim {
 
     @Override
     public String toString() {
-        return String.format("ID: %s | Urgency: %-6s | Amount: %s", claimId, urgency, claimAmount);
+        return String.format("CLAIM ID: %s | Amount: %s | Policy ID: %-20s | Customer Name: %-6s | Urgency: %-6s | ", claimId, claimAmount, policyId, customerName, claimAmount);
     }
 }

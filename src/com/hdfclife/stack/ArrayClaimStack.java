@@ -13,6 +13,7 @@ public class ArrayClaimStack implements ClaimStack{
         top = -1;
     }
 
+    // Time Complexity: O(1)
     @Override
     public void push(int value) {
         if(top == stack.length - 1) {
@@ -21,6 +22,7 @@ public class ArrayClaimStack implements ClaimStack{
         stack[++top] = value;
     }
 
+    // Time Complexity: O(1)
     @Override
     public int pop() {
 
@@ -31,6 +33,7 @@ public class ArrayClaimStack implements ClaimStack{
         return stack[top--];
     }
 
+    // Time Complexity: O(1)
     @Override
     public int peek() {
 

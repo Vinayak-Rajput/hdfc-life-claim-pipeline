@@ -10,10 +10,10 @@ public class  LinkedClaimStack implements ClaimStack{
     private int size;
 
     public int size() {
-
         return size;
     }
 
+    // Time Complexity: O(1)
     @Override
     public void push(int value) {
 
@@ -24,6 +24,7 @@ public class  LinkedClaimStack implements ClaimStack{
         size++;
     }
 
+    // Time Complexity: O(1)
     @Override
     public int pop() {
 
@@ -39,6 +40,7 @@ public class  LinkedClaimStack implements ClaimStack{
         return removedValue;
     }
 
+    // Time Complexity: O(1)
     @Override
     public int peek() {
 
@@ -51,7 +53,6 @@ public class  LinkedClaimStack implements ClaimStack{
 
     @Override
     public boolean isEmpty() {
-
         return head == null;
     }
 }
